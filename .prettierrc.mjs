@@ -9,10 +9,7 @@ export default {
   arrowParens: 'always',
   bracketSpacing: true,
 
-  plugins: [
-    'prettier-plugin-astro',
-    'prettier-plugin-tailwindcss',
-  ],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   tailwindFunctions: ['cn', 'cva'],
   overrides: [
     {
