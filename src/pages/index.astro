@@ -1,9 +1,12 @@
 ---
+import BaseHeader from '~/components/base/base-header.astro';
 import MainLayout from '~/layouts/main-layout.astro';
+import { useI18n } from '~/lib/i18n';
 
-// const { url } = Astro;
+const { url } = Astro;
+const { p, t } = useI18n(url);
 ---
 
 <MainLayout class="font-serif">
-  <div>welcome</div>
+  <BaseHeader title={`${t('index.name')} ﹒ ukihwa`} />
 </MainLayout>
