@@ -1,0 +1,34 @@
+---
+import BaseHead from '~/components/base/base-head.astro';
+import { getLangFromUrl, type Language } from '~/lib/i18n';
+import type { SEOProps } from '~/lib/schemas/seo-props';
+
+type Props = {
+  lang?: Language;
+  seo?: SEOProps;
+  class?: string;
+  pagefind?: boolean;
+};
+
+const { seo, pagefind, ...props } = Astro.props;
+
+const lang = props.lang ?? getLangFromUrl(Astro.url);
+---
+
+<!doctype html>
+<html {lang}>
+  <head>
+    <BaseHead {...seo} />
+  </head>
+  <body>
+    <div class="blur-layer" aria-hidden="true"></div>
+    <div class="container">
+      <main
+        class={Astro.props.class}
+        {...pagefind && { 'data-pagefind-body': '' }}
+      >
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

@@ -11,7 +11,6 @@ export default {
 
   plugins: [
     'prettier-plugin-astro',
-    'prettier-plugin-svelte',
     'prettier-plugin-tailwindcss',
   ],
   tailwindFunctions: ['cn', 'cva'],
