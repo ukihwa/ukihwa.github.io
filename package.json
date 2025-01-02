@@ -6,9 +6,23 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "commit": "git-cz"
   },
   "dependencies": {
     "astro": "^5.1.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cz-commitlint": "^19.6.1",
+    "@commitlint/prompt-cli": "^19.6.1",
+    "commitizen": "^4.3.1",
+    "inquirer": "9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
