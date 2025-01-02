@@ -14,7 +14,7 @@
     "check:astro": "astro check --minimumSeverity warning",
     "check:prettier": "prettier . --check",
     "check:eslint": "eslint . --quiet",
-    "check:stylelint": "stylelint \"src/**/*.{css,scss}\"",
+    "check:stylelint": "stylelint \"src/**/*.{css,scss}\" --allow-empty-input",
     "lint": "concurrently \"bun:lint:*\"",
     "lint:prettier": "prettier . --write",
     "lint:eslint": "eslint . --fix",
@@ -24,6 +24,7 @@
     "astro": "^5.1.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/cz-commitlint": "^19.6.1",
@@ -45,6 +46,7 @@
     "prettier-plugin-tailwindcss": "^0.6.9",
     "stylelint": "^16.12.0",
     "stylelint-config-recess-order": "^5.1.1",
+    "typescript": "^5.7.2",
     "typescript-eslint": "^8.19.0"
   },
   "config": {
