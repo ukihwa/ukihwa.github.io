@@ -7,7 +7,17 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "-------- LINT --------": "",
+    "check": "concurrently \"bun:check:*\"",
+    "check:astro": "astro check --minimumSeverity warning",
+    "check:prettier": "prettier . --check",
+    "check:eslint": "eslint . --quiet",
+    "check:stylelint": "stylelint \"src/**/*.{css,scss}\"",
+    "lint": "concurrently \"bun:lint:*\"",
+    "lint:prettier": "prettier . --write",
+    "lint:eslint": "eslint . --fix",
+    "lint:stylelint": "stylelint \"src/**/*.{css,scss}\" --fix"
   },
   "dependencies": {
     "astro": "^5.1.1"
@@ -18,7 +28,12 @@
     "@commitlint/cz-commitlint": "^19.6.1",
     "@commitlint/prompt-cli": "^19.6.1",
     "commitizen": "^4.3.1",
-    "inquirer": "9"
+    "concurrently": "^9.1.2",
+    "inquirer": "9",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.9"
   },
   "config": {
     "commitizen": {
