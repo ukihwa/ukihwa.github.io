@@ -37,6 +37,18 @@ export const ui = {
           >
         </b>.
       </p>`,
+    'snowfall.title': 'Snowfall Customizer',
+    'snowfall.description': 'Customize the snowfall effect.',
+    'snowfall.color': 'Color',
+    'snowfall.min': 'Min',
+    'snowfall.max': 'Max',
+    'snowfall.snowflakeCount': 'Snowflake Count',
+    'snowfall.speed': 'Speed',
+    'snowfall.wind': 'Wind',
+    'snowfall.radius': 'Radius',
+    'snowfall.mode': 'Mode',
+    'snowfall.on': 'On',
+    'snowfall.off': 'Off',
   },
   ko: {
     '404.desc': '관련된 문서를 찾을 수 없습니다.',
@@ -66,5 +78,17 @@ export const ui = {
           >
         </b>를 개발하고 있습니다.
       </p>`,
+    'snowfall.title': '눈 내림 효과 설정',
+    'snowfall.description': '눈 내림 효과를 설정하세요.',
+    'snowfall.color': '색상',
+    'snowfall.min': '최소',
+    'snowfall.max': '최대',
+    'snowfall.snowflakeCount': '개수',
+    'snowfall.speed': '속도',
+    'snowfall.wind': '바람',
+    'snowfall.radius': '크기',
+    'snowfall.mode': '모드',
+    'snowfall.on': '켜기',
+    'snowfall.off': '끄기',
   },
 } satisfies Record<Language, { [key: string]: string }>;

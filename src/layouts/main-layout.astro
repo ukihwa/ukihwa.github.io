@@ -1,6 +1,4 @@
 ---
-import Snowfall from 'react-snowfall';
-
 import BaseHead from '~/components/base/base-head.astro';
 import ThemeHeadScript from '~/components/base/theme-head-script.astro';
 import { getLangFromUrl, type Language } from '~/lib/i18n';
@@ -27,7 +25,6 @@ const lang = props.lang ?? getLangFromUrl(Astro.url);
   <body>
     <div class="blur-layer" aria-hidden="true"></div>
     <div class="container">
-      <Snowfall client:load color="#dee4fd" />
       <main
         class={Astro.props.class}
         {...pagefind && { 'data-pagefind-body': '' }}
