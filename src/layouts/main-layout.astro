@@ -2,6 +2,7 @@
 import Snowfall from 'react-snowfall';
 
 import BaseHead from '~/components/base/base-head.astro';
+import ThemeHeadScript from '~/components/base/theme-head-script.astro';
 import { getLangFromUrl, type Language } from '~/lib/i18n';
 import type { SEOProps } from '~/lib/schemas/seo-props';
 
@@ -21,6 +22,7 @@ const lang = props.lang ?? getLangFromUrl(Astro.url);
 <html {lang}>
   <head>
     <BaseHead {...seo} />
+    <ThemeHeadScript />
   </head>
   <body>
     <div class="blur-layer" aria-hidden="true"></div>
