@@ -21,19 +21,19 @@ export const ui = {
     'footer.source': 'Source Code',
     'index.name': 'Seolhwa',
     'index.desc':
-      `<p>Passionate about interacting <b>smoothly</b> with users and <b>simplifying</b> complex things into simple and convenient forms.</p>` +
-      `<p>Enjoy exploring and reflecting, and aim to record discoveries along the way.</p>`,
+      `<p>Passionate about practicing <b>self-development with altruism</b> and <b>transforming the knowledge of the world</b> into something I can make my own.</p>` +
+      `<p>Clarifying thoughts and drawing out unconscious potential through consistent recording is the aim.</p>`,
     'index.currentWork': `<p>
         Currently work in 
         <b>
-          <a class="external-link" href="https://www.kakaocorp.com/page/" target="_blank"
-            >Kakao</a
+          <a class="external-link" href="https://www.happyedutech.com/" target="_blank"
+            >Happyedutech</a
           >
         </b>
         developing
         <b>
-          <a class="external-link" href="https://brunch.co.kr/" target="_blank"
-            >Brunch</a
+          <a class="external-link" href="https://play.google.com/store/apps/details?id=kr.mathtutor&hl=ko" target="_blank"
+            >MathTutor</a
           >
         </b>.
       </p>`,
@@ -63,18 +63,18 @@ export const ui = {
     'footer.source': '소스코드',
     'index.name': '설화',
     'index.desc':
-      `<p>사용자와 <b>부드럽게</b> 상호작용하는 것, 복잡한 것을 <b>단순하고 간편하게</b> 만드는 것에 열광합니다.</p>` +
-      `<p>탐구하고 사색하는 것을 좋아하여 발견한 것을 틈틈이 기록하려 합니다.</p>`,
+      `<p><b>이타성의 자기계발</b>을 실천하는 것, <b>세상의 지식</b>을 내 것으로 만드는 것에 열광합니다.</p>` +
+      `<p>생각을 명확히 하고 무의식 속 잠재력을 끌어내기 위해 틈틈이 기록하려 합니다.</p>`,
     'index.currentWork': `      <p>
         현재
         <b>
-          <a class="external-link" href="https://www.kakaocorp.com/page/" target="_blank"
-            >카카오</a
+          <a class="external-link" href="https://www.happyedutech.com/" target="_blank"
+            >해피에듀테크</a
           >
         </b>에서
         <b>
-          <a class="external-link" href="https://brunch.co.kr/" target="_blank"
-            >브런치</a
+          <a class="external-link" href="https://play.google.com/store/apps/details?id=kr.mathtutor&hl=ko" target="_blank"
+            >매쓰튜터</a
           >
         </b>를 개발하고 있습니다.
       </p>`,
