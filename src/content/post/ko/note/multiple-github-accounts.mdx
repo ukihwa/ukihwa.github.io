@@ -1,0 +1,157 @@
+---
+title: '(Git) 한 컴퓨터에서 여러 GitHub 계정 사용하기'
+description: ''
+date: 2022-07-11 21:10:33
+draft: false
+tags:
+  - git
+---
+
+개발 작업을 하다 보면 개인 계정과 회사 계정을 동시에 사용해야 할 때가 있습니다. 기본적으로 Git은 하나의 글로벌 사용자 설정을 사용하지만, 약간의 설정 변경으로 여러 계정을 관리할 수 있습니다. 이번 글에서는 한 컴퓨터에서 GitHub 계정을 여러 개 사용하는 방법을 단계별로 설명합니다.
+
+---
+
+## 1. SSH 키 생성 및 추가
+
+각 계정 마다 별도의 SSH 키를 생성해야 합니다.
+
+**SSH 키 생성**
+
+```shell
+# 개인 계정용 SSH 키 생성
+ssh-keygen -t rsa -C "personal@example.com" -f ~/.ssh/id_rsa_personal
+
+# 회사 계정용 SSH 키 생성
+ssh-keygen -t rsa -C "work@example.com" -f ~/.ssh/id_rsa_work
+```
+
+**SSH 에이전트에 키 추가**
+
+```shell
+# SSH 에이전트를 시작하고 키를 추가합니다.
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_personal
+ssh-add ~/.ssh/id_rsa_work
+
+# 정상적으로 추가되었는지 확인합니다.
+ssh-add -l
+```
+
+**GitHub에 SSH 키 추가**
+
+1. 각 키의 공개 키를 복사합니다.
+
+```shell
+pbcopy < ~/.ssh/id_rsa_personal.pub
+pbcopy < ~/.ssh/id_rsa_work.pub
+```
+
+2. GitHub의 계정 설정(Settings) > SSH and GPG keys에서 각각의 공개 키를 추가합니다.
+
+---
+
+## 2. SSH 설정 파일 수정
+
+SSH 설정 파일(`~/.ssh/config`)을 수정하여 계정별로 키를 사용할 수 있도록 설정합니다.
+
+**SSH 설정 파일 수정**
+
+```shell
+# SSH 설정 파일 열기
+code ~/.ssh/config
+```
+
+**설정 내용 추가**
+
+```shell
+# 개인 계정 설정
+Host github.com-personal
+    HostName github.com
+    User username
+    IdentityFile ~/.ssh/id_rsa_personal
+
+# 회사 계정 설정
+Host github.com-work
+    HostName github.com
+    User username
+    IdentityFile ~/.ssh/id_rsa_work
+```
+
+이 설정은 `github-personal` 및 `github-work`이라는 별칭(alias)을 통해 계정을 구분합니다.
+
+---
+
+## 3. Git 설정 분리
+
+Git에서 특정 디렉토리에 대해 계정을 지정하려면 로컬 Git 설정을 사용해야 합니다.
+
+**글로벌 Git 설정 확인**
+
+```shell
+git config --global user.name
+git config --global user.email
+```
+
+**로컬 Git 설정 확인**
+
+프로젝트 디렉토리에서 다음 명령을 실행하여 로컬 계정을 설정합니다.
+
+개인 프로젝트:
+
+```shell
+cd ~/personal-project
+git config user.name "Personal Name"
+git config user.email "personal@example.com"
+```
+
+회사 프로젝트:
+
+```shell
+cd ~/work-project
+git config user.name "Work Name"
+git config user.email "work@example.com"
+```
+
+---
+
+## 4. 클론 시 SSH 별칭 사용
+
+프로젝트를 클론할 때 SSH 별칭을 사용하여 계정을 구분합니다.
+
+개인 계정 프로젝트 클론:
+
+```shell
+git clone git@github-personal:username/repository.git
+```
+
+회사 계정 프로젝트 클론:
+
+```shell
+git clone git@github-work:username/repository.git
+```
+
+---
+
+## 5. 계정 확인 및 테스트
+
+**현재 계정 확인**
+
+Git은 현재 디렉토리의 로컬 설정을 기반으로 커밋에 사용할 계정을 결정합니다. 다음 명령어로 확인할 수 있습니다.
+
+```shell
+git config user.name
+git config user.email
+```
+
+**SSH 연결 테스트**
+
+```shell
+ssh -T git@github-personal
+ssh -T git@github-work
+```
+
+---
+
+## 마무리
+
+이제 한 컴퓨터에서 여러 GitHub 계정을 효율적으로 사용할 수 있습니다. 이 방법은 개인 프로젝트와 업무 프로젝트를 구분하거나 여러 조직에서 협업하는 개발자에게 특히 유용합니다. 필요에 따라 SSH 키와 로컬 Git 설정을 조정하여 더 복잡한 워크플로우도 관리할 수 있습니다.

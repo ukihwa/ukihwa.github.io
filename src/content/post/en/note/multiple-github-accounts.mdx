@@ -1,0 +1,154 @@
+---
+title: '(Git) Managing Multiple GitHub Accounts on a Single Computer'
+description: ''
+date: 2022-07-11 21:10:33
+draft: false
+tags:
+  - git
+---
+
+As a developer, you might need to use both personal and work GitHub accounts on the same computer. By default, Git uses a global user configuration, but with a few tweaks, you can easily manage multiple accounts. This guide will walk you through the steps to set up and use multiple GitHub accounts on a single machine.
+
+---
+
+## 1. Generate and Add SSH Keys
+
+Each account requires a separate SSH key.
+
+**Generate SSH Keys**
+
+```shell
+# Generate SSH key for personal account
+ssh-keygen -t rsa -C "personal@example.com" -f ~/.ssh/id_rsa_personal
+
+# Generate SSH key for work account
+ssh-keygen -t rsa -C "work@example.com" -f ~/.ssh/id_rsa_work
+```
+
+**Add Keys to the SSH Agent**
+
+```shell
+# Start the SSH agent and add the keys
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_personal
+ssh-add ~/.ssh/id_rsa_work
+```
+
+**Add SSH Keys to GitHub**
+
+1. Display the public keys:
+
+```shell
+pbcopy < ~/.ssh/id_rsa_personal.pub
+pbcopy < ~/.ssh/id_rsa_work.pub
+```
+
+2. Go to GitHub > Settings > SSH and GPG keys and add the respective public keys for each account.
+
+---
+
+## 2. Configure the SSH Config File
+
+Modify the SSH configuration file (`~/.ssh/config`) to specify which key to use for each account.
+
+**Edit the SSH Config File**
+
+```shell
+# Open the SSH config file
+code ~/.ssh/config
+```
+
+**Add Configuration**
+
+```shell
+# Personal account
+Host github.com-personal
+    HostName github.com
+    User username
+    IdentityFile ~/.ssh/id_rsa_personal
+
+# Work account
+Host github.com-work
+    HostName github.com
+    User username
+    IdentityFile ~/.ssh/id_rsa_work
+```
+
+This configuration uses the aliases `github-personal` and `github-work` to distinguish between accounts.
+
+---
+
+## 3. Separate Git Configurations
+
+To specify which account to use for a project, configure the local Git settings for that directory.
+
+**Check Global Git Settings**
+
+```shell
+git config --global user.name
+git config --global user.email
+```
+
+**Set Local Git Settings**
+
+Run the following commands in your project directory to set the local account:
+
+Personal Project:
+
+```shell
+cd ~/personal-project
+git config user.name "Personal Name"
+git config user.email "personal@example.com"
+```
+
+Work Project:
+
+```shell
+cd ~/work-project
+git config user.name "Work Name"
+git config user.email "work@example.com"
+```
+
+---
+
+## 4. Use SSH Aliases for Cloning
+
+When cloning repositories, use the SSH aliases defined in the SSH config file.
+
+Clone a Personal Account Repository:
+
+```shell
+git clone git@github-personal:username/repository.git
+```
+
+Clone a Work Account Repository:
+
+```shell
+git clone git@github-work:username/repository.git
+```
+
+---
+
+## 5. Verify and Test
+
+**Check Current Account**
+
+Git uses the local configuration for commits. Check the current account with:
+
+```shell
+git config user.name
+git config user.email
+```
+
+**Test SSH Connections**
+
+```shell
+ssh -T git@github-personal
+ssh -T git@github-work
+```
+
+---
+
+## Conclusion
+
+With this setup, you can efficiently use multiple GitHub accounts on a single computer. This method is particularly useful for separating personal and work projects or collaborating with multiple organizations. Adjust your SSH keys and Git configurations as needed to manage even more complex workflows.
