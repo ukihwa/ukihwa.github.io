@@ -1,32 +1,28 @@
 ---
-import { format } from 'date-fns';
-
 import BaseHeader from '~/components/base/base-header.astro';
 import BaseNav from '~/components/base/base-nav.astro';
-import { BxLinkExternal } from '~/components/ui/icons';
 import MainLayout from '~/layouts/main-layout.astro';
-import { useI18n, useTranslatedPath } from '~/lib/i18n';
-import { getWritingPostInfoList, type PostInfo, sortDateDesc } from '~/lib/mdx';
+import { useI18n } from '~/lib/i18n';
 
-const { lang, t } = useI18n(Astro.url);
+const { t } = useI18n(Astro.url);
 
-const posts = await getWritingPostInfoList();
+// const posts = await getWritingPostInfoList();
 
 const title = t('nav.writing');
 const description = t('nav.writing.desc');
 
-const p = useTranslatedPath(lang);
+// const p = useTranslatedPath(lang);
 
-const yearList = Object.entries(
-  posts
-    .filter((post) => post.lang === lang)
-    .reduce<{ [year: string]: PostInfo[] }>((ac, post) => {
-      const year = new Date(post.date).getFullYear();
-      if (!ac[year]) ac[year] = [];
-      ac[year].push(post);
-      return ac;
-    }, {}),
-).sort((a, b) => +b[0] - +a[0]);
+// const yearList = Object.entries(
+//   posts
+//     .filter((post) => post.lang === lang)
+//     .reduce<{ [year: string]: PostInfo[] }>((ac, post) => {
+//       const year = new Date(post.date).getFullYear();
+//       if (!ac[year]) ac[year] = [];
+//       ac[year].push(post);
+//       return ac;
+//     }, {}),
+// ).sort((a, b) => +b[0] - +a[0]);
 ---
 
 <MainLayout seo={{ title, description }} class="font-serif">
@@ -35,7 +31,7 @@ const yearList = Object.entries(
   </BaseHeader>
 
   <section data-animate class="group my-14">
-    {
+    <!-- {
       yearList.map(([year, postList], index) => {
         return (
           <div class="group/year relative z-0 border-t last-of-type:border-b">
@@ -72,6 +68,6 @@ const yearList = Object.entries(
           </div>
         );
       })
-    }
+    } -->
   </section>
 </MainLayout>
