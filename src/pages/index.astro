@@ -2,6 +2,7 @@
 import { FileUser } from 'lucide-react';
 
 import BaseHeader from '~/components/base/base-header.astro';
+import CursorEffect from '~/components/cursor-effect.astro';
 import {
   EmailIcon,
   GithubIcon,
@@ -17,8 +18,9 @@ const { p, t } = useI18n(url);
 ---
 
 <MainLayout class="font-serif">
+  <CursorEffect />
   <BaseHeader title={`${t('index.name')} ﹒ ukihwa`} />
-  <div data-animate data-animate-speed="slow">
+  <div>
     {/* 소개 */}
     <div class="my-7" set:html={t('index.desc')} />
     <div class="my-7">
@@ -72,21 +74,23 @@ const { p, t } = useI18n(url);
         </a>
       </div>
     </div>
-    {/* 나의 공간 */}
-    <div class="my-14 flex gap-7">
-      <div>{t('nav.title')}</div>
-      <div data-animate class="flex flex-col gap-1">
-        {
-          NAV.map((item) => (
-            <div style="--lv-wait: 2;">
+  </div>
+  {/* 나의 공간 */}
+  <div class="my-14">
+    <div data-animate data-animate-speed="slow" class="flex flex-col gap-14">
+      {
+        NAV.map((item) => (
+          <div style="--lv-wait: 2;">
+            <div>
               <a class="link font-bold" href={p(`/${item}`)}>
                 {t(`nav.${item}`)}
               </a>
-              <span class="ml-3 text-sm">{t(`nav.${item}.desc`)}</span>
+              <span>, {t(`nav.${item}.desc`)}</span>
             </div>
-          ))
-        }
-      </div>
+          </div>
+        ))
+      }
     </div>
   </div>
+  <div class="h-14"></div>
 </MainLayout>

@@ -1,5 +1,4 @@
 ---
-import SnowfallCustomizer from '~/components/snowfall/snowfall-customizer';
 import SearchButton from '~/components/ui/search-button';
 
 import LanguageDropdown from './language-dropdown';
@@ -22,7 +21,6 @@ const { title, description, noI18n } = props;
       <SearchButton client:load />
       {!noI18n && <LanguageDropdown client:load {url} align="end" />}
       <ThemeDropdown client:load align="end" />
-      <SnowfallCustomizer client:load {url} />
     </div>
   </div>
   {description && <p class="text-second text-sm">{description}</p>}
