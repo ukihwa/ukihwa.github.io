@@ -6,5 +6,5 @@
     "stylelint.vscode-stylelint",
     "bradlc.vscode-tailwindcss"
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": ["biomejs.biome"]
 }

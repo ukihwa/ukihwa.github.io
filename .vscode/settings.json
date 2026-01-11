@@ -18,6 +18,9 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.importModuleSpecifier": "non-relative",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]

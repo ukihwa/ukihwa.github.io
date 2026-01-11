@@ -13,7 +13,6 @@ export default [
   pluginJs.configs.recommended,
   ...pluginTs.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
-  // @see https://ota-meshi.github.io/eslint-plugin-astro/rules/#accessibility-rules
   ...eslintPluginAstro.configs['jsx-a11y-recommended'],
   // @see https://react.dev/reference/eslint-plugin-react-hooks
   {
