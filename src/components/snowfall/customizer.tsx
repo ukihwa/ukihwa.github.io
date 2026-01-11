@@ -87,7 +87,7 @@ export default function Customizer({ url }: Props) {
                       )}
                       style={{ backgroundColor: color }}
                     >
-                      {isActive && <Check className="text-white h-4 w-4" />}
+                      {isActive && <Check className="h-4 w-4 text-white" />}
                     </span>
                     {color}
                   </Button>

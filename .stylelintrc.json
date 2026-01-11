@@ -1,3 +1,41 @@
 {
-  "extends": ["stylelint-config-recess-order"]
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-html/astro",
+    "stylelint-config-recess-order"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "layer",
+          "config",
+          "theme",
+          "source",
+          "utility",
+          "variant",
+          "plugin"
+        ]
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["theme", "screen"]
+      }
+    ],
+    "media-query-no-invalid": null,
+    "no-duplicate-selectors": null,
+    "no-descending-specificity": null,
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*)(-{1,2}[a-z0-9]+)*$",
+      {
+        "message": "Expected class selector to be kebab-case or BEM"
+      }
+    ]
+  },
+  "ignoreFiles": ["dist/**", "node_modules/**", ".astro/**"]
 }

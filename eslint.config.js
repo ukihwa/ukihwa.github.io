@@ -1,5 +1,6 @@
 import pluginJs from '@eslint/js';
 import eslintPluginAstro from 'eslint-plugin-astro';
+import reactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
@@ -7,13 +8,24 @@ import pluginTs from 'typescript-eslint';
 
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,tsx,astro}'] },
-  { ignores: ['.astro/**/*', 'dist/**/*', 'node_modules/**/*'] },
+  { ignores: ['.astro/**/*', 'dist/**/*', 'node_modules/**/*', '**/*.d.ts'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...pluginTs.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   // @see https://ota-meshi.github.io/eslint-plugin-astro/rules/#accessibility-rules
   ...eslintPluginAstro.configs['jsx-a11y-recommended'],
+  // @see https://react.dev/reference/eslint-plugin-react-hooks
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  },
   {
     rules: {
       'no-undef': 'off',

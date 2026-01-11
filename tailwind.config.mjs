@@ -10,8 +10,8 @@ export default {
   plugins: [tailwindcssAnimate],
   theme: {
     fontFamily: {
-      sans: ['var(--font-sans)', 'sans'],
-      serif: ['var(--font-serif)', 'sans-serif'],
+      sans: ['var(--font-sans)', 'sans-serif'],
+      serif: ['var(--font-serif)', 'serif'],
       mono: ['var(--font-mono)', 'monospace'],
     },
     screens: {
@@ -21,7 +21,11 @@ export default {
       sm: { max: '640px' },
     },
     colors: {
+      inherit: 'inherit',
+      current: 'currentColor',
       transparent: 'transparent',
+      black: '#000000',
+      white: '#ffffff',
       gray: {
         50: 'var(--gray-50)',
         75: 'var(--gray-75)',

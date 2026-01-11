@@ -1,5 +1,6 @@
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import {
   transformerMetaHighlight,
@@ -20,7 +21,11 @@ import { transformerFragment } from './plugins/transformer-fragment';
 
 export default defineConfig({
   site: 'https://ukihwa.github.io',
+  trailingSlash: 'never',
+  compressHTML: true,
+  prefetch: true,
   integrations: [
+    sitemap(),
     tailwind({
       applyBaseStyles: false,
     }),

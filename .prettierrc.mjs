@@ -8,6 +8,7 @@ export default {
   printWidth: 80,
   arrowParens: 'always',
   bracketSpacing: true,
+  endOfLine: 'lf',
 
   plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   tailwindFunctions: ['cn', 'cva'],

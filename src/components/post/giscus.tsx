@@ -55,7 +55,7 @@ export const GiscusSection = (
       giscusScript.setAttribute(key, value),
     );
     document.querySelector('#giscus')?.appendChild(giscusScript);
-  }, []);
+  }, [props.lang]);
 
   return (
     <section {...props} style={{ minHeight: '372px' }} id="giscus"></section>
