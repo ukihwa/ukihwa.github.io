@@ -1,10 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "exclude": ["dist", "scripts", "commitlint.config.ts"],
   "compilerOptions": {
     "strictNullChecks": true,
-    "types": ["bun-types"],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",

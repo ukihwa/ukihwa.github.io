@@ -1,5 +1,6 @@
 build
 dist
 coverage
+pnpm-lock.yaml
 
 monitoring-script.astro

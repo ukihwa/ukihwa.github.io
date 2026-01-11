@@ -6,12 +6,14 @@ import globals from 'globals';
 import pluginTs from 'typescript-eslint';
 
 export default [
-  { files: ['**/*.{js,mjs,cjs,ts,astro}'] },
-  { ignores: ['.astro/**/*', 'dist/**/*', '**/static/'] },
+  { files: ['**/*.{js,mjs,cjs,ts,tsx,astro}'] },
+  { ignores: ['.astro/**/*', 'dist/**/*', 'node_modules/**/*'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...pluginTs.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
+  // @see https://ota-meshi.github.io/eslint-plugin-astro/rules/#accessibility-rules
+  ...eslintPluginAstro.configs['jsx-a11y-recommended'],
   {
     rules: {
       'no-undef': 'off',

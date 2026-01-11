@@ -1,4 +1,4 @@
-import type { Element } from 'hast';
+import type { Element, ElementContent } from 'hast';
 import { addClassToHast, type ShikiTransformer } from 'shiki';
 
 const ignoreLangList = ['', 'plaintext'];
@@ -101,8 +101,8 @@ function createCopyElement() {
 
 function createLineNumbersElement(codeElement: Element): Element {
   const lineNumbers = codeElement.children
-    .filter((child) => child.type === 'text')
-    .map((_, i) => {
+    .filter((child: ElementContent) => child.type === 'text')
+    .map((_: ElementContent, i: number) => {
       return {
         type: 'element',
         tagName: 'span',
