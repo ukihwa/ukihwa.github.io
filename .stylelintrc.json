@@ -17,7 +17,9 @@
           "source",
           "utility",
           "variant",
-          "plugin"
+          "plugin",
+          "custom-variant",
+          "reference"
         ]
       }
     ],
@@ -27,9 +29,14 @@
         "ignoreFunctions": ["theme", "screen"]
       }
     ],
+    "import-notation": null,
     "media-query-no-invalid": null,
     "no-duplicate-selectors": null,
     "no-descending-specificity": null,
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "nesting-selector-no-missing-scoping-root": null,
     "selector-class-pattern": [
       "^([a-z][a-z0-9]*)(-{1,2}[a-z0-9]+)*$",
       {

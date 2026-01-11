@@ -32,7 +32,7 @@ export default function SnowfallSheet({ url }: Props) {
         <SheetHeader className="hidden">
           <div className="flex items-start pt-4 md:pt-0">
             <div className="space-y-1 pr-2">
-              <SheetTitle className="text-base font-semibold leading-none tracking-tight">
+              <SheetTitle className="text-base leading-none font-semibold tracking-tight">
                 {t('snowfall.title')}
               </SheetTitle>
               <SheetDescription className="text-xs">

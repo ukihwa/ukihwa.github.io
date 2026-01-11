@@ -17,7 +17,7 @@ export default function TableOfContent({ toc, className, ...props }: Props) {
           <a
             className={cn(
               'link text-second',
-              currentSectionSlug === section.slug && 'font-medium text-body',
+              currentSectionSlug === section.slug && 'text-body font-medium',
             )}
             href={`#${section.slug}`}
           >

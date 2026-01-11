@@ -52,10 +52,10 @@ export default function Customizer({ url }: Props) {
     <div className="flex h-1 flex-1 flex-col space-y-4 md:space-y-6">
       <div className="flex items-start pt-4 md:pt-0">
         <div className="space-y-1 pr-2">
-          <div className="font-semibold leading-none tracking-tight">
+          <div className="leading-none font-semibold tracking-tight">
             {t('snowfall.title')}
           </div>
-          <div className="text-xs text-second">{t('snowfall.description')}</div>
+          <div className="text-second text-xs">{t('snowfall.description')}</div>
         </div>
         <RepeatButton />
       </div>

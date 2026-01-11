@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 :root {
   --vp-c-white: #fff;
   --vp-c-black: #000;

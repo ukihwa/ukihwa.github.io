@@ -1,7 +1,6 @@
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
@@ -11,6 +10,7 @@ import {
   transformerNotationHighlight,
 } from '@shikijs/transformers';
 import { transformerTwoslash } from '@shikijs/twoslash';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -24,11 +24,11 @@ export default defineConfig({
   trailingSlash: 'never',
   compressHTML: true,
   prefetch: true,
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     react(),
     mdx({
       syntaxHighlight: 'shiki',

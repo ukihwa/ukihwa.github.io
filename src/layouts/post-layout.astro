@@ -59,10 +59,10 @@ const { Content } = await post.render();
   </article>
   <footer>
     <CopyRight class="mt-page text-right text-xs" />
-    <hr class="mb-7 mt-4" />
+    <hr class="mt-4 mb-7" />
     <BasePaginator {prevPost} {nextPost} />
     <PostRelated {relatedPostList} />
-    <GiscusSection className="mx-auto my-half-page" {lang} client:load />
+    <GiscusSection className="my-half-page mx-auto" {lang} client:load />
   </footer>
   <MediumZoomScript />
   <TwoslashFloatingScript />

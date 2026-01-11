@@ -8,7 +8,7 @@ export default function RepeatButton() {
     <Button
       variant="ghost"
       size="icon"
-      className="ml-auto shrink-0 text-second"
+      className="text-second ml-auto shrink-0"
       onClick={() => {
         reset();
       }}
